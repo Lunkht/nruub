@@ -54,3 +54,26 @@ const toggleBtn = document.querySelector('.toggle_btn'); // Sélecteur de classe
 			    });
 			});
 		});
+
+// HERO SEARCH LOGIC
+const heroSearchInput = document.getElementById('search');
+const heroSearchBtn = document.getElementById('heroSearchBtn');
+
+function handleHeroSearch() {
+    const query = heroSearchInput.value.trim();
+    if (query.length === 0) {
+        alert('Veuillez entrer un terme de recherche.');
+        return;
+    }
+    // Ici, vous pouvez ajouter la logique de recherche réelle
+    alert('Résultat de la recherche pour : ' + query);
+}
+
+if (heroSearchBtn && heroSearchInput) {
+    heroSearchBtn.addEventListener('click', handleHeroSearch);
+    heroSearchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            handleHeroSearch();
+        }
+    });
+}
