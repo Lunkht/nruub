@@ -77,3 +77,30 @@ if (heroSearchBtn && heroSearchInput) {
         }
     });
 }
+
+// --- Browser-like Navigation Logic (basic demo) ---
+const browserTabs = document.querySelector('.browser-tabs');
+if (browserTabs) {
+    browserTabs.addEventListener('click', function(e) {
+        if (e.target.classList.contains('close-tab')) {
+            e.target.parentElement.remove();
+        } else if (e.target.classList.contains('add-tab')) {
+            const newTab = document.createElement('div');
+            newTab.className = 'browser-tab';
+            newTab.innerHTML = 'Nouvel onglet <span class="close-tab">×</span>';
+            browserTabs.insertBefore(newTab, browserTabs.querySelector('.add-tab'));
+        } else if (e.target.classList.contains('browser-tab')) {
+            browserTabs.querySelectorAll('.browser-tab').forEach(tab => tab.classList.remove('active'));
+            e.target.classList.add('active');
+        }
+    });
+}
+
+const backBtn = document.querySelector('.browser-btn[title="Back"]');
+const forwardBtn = document.querySelector('.browser-btn[title="Forward"]');
+const refreshBtn = document.querySelector('.browser-btn[title="Refresh"]');
+
+if (backBtn) backBtn.onclick = () => alert('Back navigation demo');
+if (forwardBtn) forwardBtn.onclick = () => alert('Forward navigation demo');
+if (refreshBtn) refreshBtn.onclick = () => location.reload();
+// --- End Browser Navigation Logic ---

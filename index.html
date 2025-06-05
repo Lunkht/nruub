@@ -17,31 +17,17 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="navBar">
-            <div class="logo">
-                <a href="#hero"><img src="images/logo.png" alt="logo"></a>
-            </div>
-            <ul>
-                <li><a href="#activities">Services</a></li>
-                <li><a href="#teams">Équipe</a></li>
-                <li><a href="#partners">Partenaires</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-			<div class="menu-buttons" style="display: flex; align-items: center;">
-				<button class="sidebar-btn" id="searchSidebarBtn" title="Moteur de recherche"><i class="fa fa-search"></i></button>
-				<button class="sidebar-btn" id="assistantSidebarBtn" title="Assistant virtuel"><i class="fa fa-robot"></i></button>
-				
-			</div>
-          <div class="toggle_btn">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-            <div class="dropdown_menu">
-                <li><a href="#activities">Services</a></li>
-                <li><a href="#teams">Équipe</a></li>
-                <li><a href="#partners">Partenaires</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="menu">Commençons</a></li>
+    <header class="browser-header">
+        <div class="browser-controls">
+            <button class="browser-btn" title="Back"><i class="fa fa-arrow-left"></i></button>
+            <button class="browser-btn" title="Forward"><i class="fa fa-arrow-right"></i></button>
+            <button class="browser-btn" title="Refresh"><i class="fa fa-rotate-right"></i></button>
+            <input class="browser-address" type="text" value="https://nruub.com" readonly>
+            <div class="browser-tabs">
+                <div class="browser-tab active">Accueil <span class="close-tab">×</span></div>
+                <div class="browser-tab">Services <span class="close-tab">×</span></div>
+                <div class="browser-tab">Contact <span class="close-tab">×</span></div>
+                <button class="add-tab">+</button>
             </div>
         </div>
     </header>
