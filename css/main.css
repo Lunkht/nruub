@@ -98,7 +98,6 @@ body {
   min-height: 60vh;
   padding: 4rem 0;
   text-align: center;
-  background: linear-gradient(rgba(34,34,34,0.5), rgba(34,34,34,0.5)), url('../images/fond.jpg') center/cover no-repeat;
 }
 
 .header-wrapper {
