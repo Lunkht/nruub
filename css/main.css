@@ -101,20 +101,8 @@ body {
 }
 
 .header-wrapper {
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto;
-}
-
-.welcomeText h1 {
-  font-size: 2.5rem;
-  margin: 0;
-  font-weight: 700;
-}
-
-.welcomeText h2 {
-  font-size: 2rem;
-  margin: 0.5rem 0 2rem 0;
-  font-weight: 400;
 }
 
 .headToolBox {
@@ -167,11 +155,6 @@ body {
   min-height: 200px;
   display: flex;
   flex-direction: column;
-}
-
-
-form button:hover {
-  background: #2db377;
 }
 
 
