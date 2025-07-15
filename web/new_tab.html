@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nouvell onglet</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #f9f9f9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        #logo {
+            width: 250px;
+            /* Adjust as needed */
+            height: 150px;
+            margin-bottom: 30px;
+        }
+
+        #search-bar-wrapper {
+            width: 100%;
+            min-width: 700px;
+        }
+
+        .url-bar-wrapper {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--url-bar-border);
+            border-radius: 20px;
+            padding: 0 12px;
+            margin: 0 8px;
+            background-color: var(--url-bar-bg);
+        }
+
+        #url-bar {
+            flex-grow: 1;
+            border: none;
+            padding: 6px 0;
+            font-size: 14px;
+            background-color: var(--url-bar-bg);
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 24px;
+            border: 1px solid #dfe1e5;
+            font-size: 16px;
+        }
+
+        #search-input:focus {
+            outline: none;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
+        }
+
+        #search-icon {
+            height: 16px;
+            width: 16px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+        #search-icon:hover {
+            opacity: 0.7;
+        }
+
+        #search-icon:active {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="logo" src="logo.svg" alt="Logo">
+    <div id="search-bar-wrapper">
+        <input type="text" id="search-input" placeholder="Rechercher avec Nrrub..." tabindex="0">
+    </div>
+    <script>
+        document.getElementById('search-input').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                // This will inform the main script to perform a search
+                window.parent.postMessage({ type: 'search', query: e.target.value }, '*');
+            }
+        });
+    </script>
+</body>
+
+</html>
