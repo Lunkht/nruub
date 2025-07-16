@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Nouvell onglet</title>
+    <title>Nouvel onglet</title>
     <style>
         body,
         html {
@@ -18,61 +18,36 @@
 
         #logo {
             width: 250px;
-            /* Adjust as needed */
             height: 150px;
             margin-bottom: 30px;
         }
 
         #search-bar-wrapper {
-            width: 100%;
-            min-width: 700px;
-        }
-
-        .url-bar-wrapper {
-            flex-grow: 1;
             display: flex;
             align-items: center;
-            border: 1px solid var(--url-bar-border);
-            border-radius: 20px;
-            padding: 0 12px;
-            margin: 0 8px;
-            background-color: var(--url-bar-bg);
+            width: 100%;
+            max-width: 700px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            padding: 0 15px;
         }
-
-        #url-bar {
-            flex-grow: 1;
-            border: none;
-            padding: 6px 0;
-            font-size: 14px;
-            background-color: var(--url-bar-bg);
+        
+        #search-bar-wrapper:focus-within {
+            box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
         }
 
         #search-input {
-            width: 100%;
-            padding: 12px 20px;
-            border-radius: 24px;
-            border: 1px solid #dfe1e5;
-            font-size: 16px;
-        }
-
-        #search-input:focus {
+            flex-grow: 1;
+            padding: 12px 10px;
+            border: none;
             outline: none;
-            box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
+            font-size: 16px;
+            background-color: transparent;
         }
 
         #search-icon {
             height: 16px;
             width: 16px;
-            margin-left: 8px;
-            cursor: pointer;
-        }
-
-        #search-icon:hover {
-            opacity: 0.7;
-        }
-
-        #search-icon:active {
-            opacity: 0.5;
         }
     </style>
 </head>
@@ -80,6 +55,7 @@
 <body>
     <img id="logo" src="logo.svg" alt="Logo">
     <div id="search-bar-wrapper">
+        <img id="search-icon" src="search.svg">
         <input type="text" id="search-input" placeholder="Rechercher avec Nrrub..." tabindex="0">
     </div>
     <script>

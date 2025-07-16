@@ -240,7 +240,10 @@ body, html {
     cursor: pointer;
     font-size: 14px;
 }
-
+#ide-btn img{
+    width: 15px;
+    height: 15px;
+}
 #ide-btn:hover {
     background-color: #f3f4f6;
 }
