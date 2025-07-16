@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>NruubIDE</title>
+    <link rel="stylesheet" href="../css/ide-style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1><img src="../assets/logo.svg" style="width: 80px;" alt=""></h1>
+        <div class="tools">
+            <select id="languageSelector">
+                <option value="python"><img src=".../assets/help.svg" alt="" srcset="">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="java">Java</option>
+                <option value="csharp">C#</option>
+                <option value="php">PHP</option>
+            </select>
+            <button onclick="runCode()">▶ Exécuter</button>
+            <button onclick="clearEditor()">Nouveau</button>
+            <div class="dropdown">
+                <button class="dropbtn">Enregistrer</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="saveCode('txt')">Enregistrer en .txt</a>
+                    <a href="#" onclick="saveCode('py')">Enregistrer en .py</a>
+                    <a href="#" onclick="saveCode('js')">Enregistrer en .js</a>
+                    <a href="#" onclick="saveCode('java')">Enregistrer en .java</a>
+                    <a href="#" onclick="saveCode('cs')">Enregistrer en .cs</a>
+                    <a href="#" onclick="saveCode('php')">Enregistrer en .php</a>
+                </div>
+            </div>
+            <button onclick="clearOutput()">Effacer la sortie</button>
+            <button id="settingsBtn" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="editor"></div>
+        <div id="outputDrawer" class="drawer">
+            <div class="drawer-header">
+                <span id="output-header-text"></span>
+                <span class="close" onclick="closeDrawer()">&times;</span>
+            </div>
+            <pre id="drawerOutput">// Résultat ici</pre>
+        </div>
+    </main>
+
+    <!-- Settings Menu -->
+    <div id="settingsMenu" class="settings-menu">
+        <h3>Paramètres</h3>
+        <div class="setting-item">
+            <label for="themeSelector">Thème de l'éditeur:</label>
+            <select id="themeSelector">
+                <option value="ace/theme/monokai">Monokai</option>
+                <option value="ace/theme/github">GitHub</option>
+                <option value="ace/theme/tomorrow">Tomorrow</option>
+                <option value="ace/theme/solarized_dark">Solarized Dark</option>
+                <option value="ace/theme/solarized_light">Solarized Light</option>
+            </select>
+        </div>
+        <div class="setting-item">
+            <label for="fontSizeSelector">Taille de police:</label>
+            <input type="number" id="fontSizeSelector" min="10" max="30" value="14">
+        </div>
+    </div>
+
+    <script src="ide-script.js"></script>
+</body>
+
+</html>

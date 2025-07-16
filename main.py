@@ -35,4 +35,4 @@ def save_as(content):
     root.destroy()
 
 # Start the application
-eel.start('index.html', size=(1024, 768))
+eel.start('html/index.html', size=(1024, 768))

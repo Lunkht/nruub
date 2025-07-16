@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+    <div id="tabs">
+        <!-- Tabs will be dynamically inserted here -->
+    </div>
+    <div id="toolbar">
+        <button id="back"><img src="../assets/arrow-small-left.svg"></button>
+        <button id="forward"><img src="../assets/arrow-small-right.svg"></button>
+        <button id="reload"><img src="../assets/rotate-left.svg"></button>
+        <button id="home"><img src="../assets/home.svg"></button>
+        <div class="url-bar-wrapper">
+            <input type="text" id="url-bar" placeholder="Rechercher ou entrer une URL...">
+            <img src="../assets/search.svg" id="search-icon">
+        </div>
+        <button id="new-tab-btn">+</button>
+        <div id="menu-container">
+            <button id="menu-btn">☰</button>
+            <div id="main-menu" class="hidden">
+                <ul>
+                    <li id="menu-new-tab">Nouvel onglet <span class="shortcut">⌘T</span></li>
+                    <li id="menu-new-window">Nouvelle fenêtre <span class="shortcut">⌘N</span></li>
+                    <li id="menu-new-private">Fenêtre privée <span class="shortcut">⇧⌘P</span></li>
+                    <hr>
+                    <li id="menu-history">Historique</li>
+                    <li id="menu-downloads">Téléchargements <span class="shortcut">⌘J</span></li>
+                    <hr>
+                    <li id="menu-print">Imprimer <span class="shortcut">⌘P</span></li>
+                    <li id="menu-save">Enregistrer sous… <span class="shortcut">⌘S</span></li>
+                    <hr>
+                    <li id="menu-zoom-in">Zoom avant <span class="shortcut">⌘+</span></li>
+                    <li id="menu-zoom-out">Zoom arrière <span class="shortcut">⌘-</span></li>
+                    <hr>
+                    <li id="menu-settings">Paramètres <span class="shortcut">⌘,</span></li>
+                    <li id="menu-theme-toggle">Thème</li>
+                    <li id="menu-help">Aide</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <!-- Iframes for each tab will be dynamically inserted here -->
+    </div>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <div id="bottom-bar">
+        <div id="ide-btn"><img src="../assets/code-simple.svg" alt="" srcset=""></div>
+    </div>
+</body>
+</html>
