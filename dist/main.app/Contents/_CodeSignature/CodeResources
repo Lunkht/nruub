@@ -746,7 +746,7 @@
 		</data>
 		<key>Resources/base_library.zip</key>
 		<data>
-		nxd5RWoRq2LB8SJQozqKxPZXUpM=
+		am/0fcGFdHeO2g9CBT+h889dltM=
 		</data>
 		<key>Resources/eel/eel.js</key>
 		<data>
@@ -978,11 +978,11 @@
 		</data>
 		<key>Resources/web/html/new_tab.html</key>
 		<data>
-		l4fqMuKj02iFBKne2l/DVYPABIA=
+		28WgZiTuPQLOHigUb0CYx6fALa0=
 		</data>
 		<key>Resources/web/html/settings.html</key>
 		<data>
-		Ac1vjKrCWPsKkGojYMh4LSGfak4=
+		7nB10WFUda9vft0tWyDNAjCjpRw=
 		</data>
 		<key>Resources/web/js/history.js</key>
 		<data>
@@ -994,7 +994,11 @@
 		</data>
 		<key>Resources/web/js/script.js</key>
 		<data>
-		jpeoesehS1kkBOHI6mU1JqnSFDU=
+		uMEPztwrejm7neKBi1i9YfHZkUk=
+		</data>
+		<key>Resources/web/js/settings.js</key>
+		<data>
+		kLv6D/o/VVH4J2JhZVE8GmEZipA=
 		</data>
 		<key>Resources/zope.interface-7.2.dist-info/INSTALLER</key>
 		<data>
@@ -3150,7 +3154,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yhLF9mTknyKjTbp2OFttk+/gZqAXpGe8Sbv1M8be39Q=
+			MlFS3QRk6op4Aj35OLg1wX6JPeo8iO1+GHTUDMsUoMQ=
 			</data>
 		</dict>
 		<key>Resources/eel/eel.js</key>
@@ -3581,14 +3585,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IldrcqgZmXI0+txRbxMiCtUN8//kp798B2dtHlD5yls=
+			QLWXNTAiz0Jcv4gueTVRafWMcqodXtBuf1Np/BeVfYc=
 			</data>
 		</dict>
 		<key>Resources/web/html/settings.html</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			P+rp5EZ36u9qXKkbwdmFl1vOG1rQyqeQP63lHoxFXyQ=
+			jw/OFBHdLkdqMz9b2WtW3R85O1GONJWagbQaaS2cGu4=
 			</data>
 		</dict>
 		<key>Resources/web/js/history.js</key>
@@ -3609,7 +3613,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KdO2na633Zjq6gTEP3ijkU5a4rX3ZZFgOs37DJ6k0jc=
+			rELnQYl0gbAuGbznuKctOK9n19wctDxqi73/+8hteWI=
+			</data>
+		</dict>
+		<key>Resources/web/js/settings.js</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			W6ORL1YxnBYsZpJQD6FSNMQIColQRehkPJ90ZOBaK/Q=
 			</data>
 		</dict>
 		<key>Resources/zope</key>

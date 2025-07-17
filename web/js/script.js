@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function createNewTab(url = 'new_tab.html', title = 'Nouvel onglet') {
+    function createNewTab(url = 'html/new_tab.html', title = 'Nouvel onglet') {
         const tabId = `tab-${Date.now()}`;
         
         // Create the tab element
@@ -187,12 +187,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.getElementById('menu-history').addEventListener('click', () => {
         const activeTab = getActiveTab();
-        if (activeTab) activeTab.viewEl.src = 'history.html';
+        if (activeTab) activeTab.viewEl.src = 'html/history.html';
         mainMenu.classList.add('hidden'); // Hide menu after action
     });
     document.getElementById('menu-downloads').addEventListener('click', () => {
         const activeTab = getActiveTab();
-        if (activeTab) activeTab.viewEl.src = 'downloads.html';
+        if (activeTab) activeTab.viewEl.src = 'html/downloads.html';
         mainMenu.classList.add('hidden'); // Hide menu after action
     });
     document.getElementById('menu-save').addEventListener('click', async () => {
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.getElementById('menu-settings').addEventListener('click', () => {
         const activeTab = getActiveTab();
-        if (activeTab) activeTab.viewEl.src = 'settings.html';
+        if (activeTab) activeTab.viewEl.src = 'html/settings.html';
         mainMenu.classList.add('hidden'); // Hide menu after action
     });
     document.getElementById('menu-help').addEventListener('click', () => {
@@ -243,18 +243,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (activeTab) activeTab.viewEl.src = 'about:blank';
     });
 
+    function performSearch(query) {
+        const activeTab = getActiveTab();
+        if (activeTab) {
+            let url = query;
+            if (!url.startsWith('http')) {
+                const defaultSearchEngine = localStorage.getItem('defaultSearchEngine') || 'duckduckgo'; // Default to DuckDuckGo
+                switch (defaultSearchEngine) {
+                    case 'google':
+                        url = `https://www.google.com/search?q=${encodeURIComponent(url)}`;
+                        break;
+                    case 'bing':
+                        url = `https://www.bing.com/search?q=${encodeURIComponent(url)}`;
+                        break;
+                    case 'duckduckgo':
+                    default:
+                        url = `https://duckduckgo.com/?q=${encodeURIComponent(url)}`;
+                        break;
+                }
+            }
+            activeTab.viewEl.src = url;
+        }
+    }
+
     urlBar.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            const activeTab = getActiveTab();
-            if (activeTab) {
-                let url = urlBar.value;
-                if (!url.startsWith('http')) {
-                    url = `https://www.google.com/search?q=${encodeURIComponent(url)}`;
-                }
-                activeTab.viewEl.src = url;
-            }
+            performSearch(urlBar.value);
         }
     });
+
+    // Expose performSearch to the global scope for iframes to access
+    window.performSearch = performSearch;
 
     // --- Keyboard Shortcuts ---
     document.addEventListener('keydown', (e) => {
@@ -285,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isCmdOrCtrl && e.key === 'j') {
             e.preventDefault();
             const activeTab = getActiveTab();
-            if (activeTab) activeTab.viewEl.src = 'downloads.html';
+            if (activeTab) activeTab.viewEl.src = 'html/downloads.html';
         }
 
         if (isCmdOrCtrl && e.key === 's') {
@@ -301,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isCmdOrCtrl && e.key === ',') {
             e.preventDefault();
             const activeTab = getActiveTab();
-            if (activeTab) activeTab.viewEl.src = 'settings.html';
+            if (activeTab) activeTab.viewEl.src = 'html/settings.html';
         }
 
         if (isCmdOrCtrl && (e.key === '=' || e.key === '+')) {
@@ -320,7 +339,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const ideBtn = document.getElementById('ide-btn');
     ideBtn.addEventListener('click', () => {
-        createNewTab('NruubIDE.html', 'IDE');
+        createNewTab('html/NruubIDE.html', 'IDE');
+    });
+
+    // Listen for messages from iframes (e.g., new_tab.html for search)
+    window.addEventListener('message', (event) => {
+        // Ensure the message is from a trusted source if possible, or validate its content
+        if (event.data && event.data.type === 'search') {
+            const query = event.data.query;
+            const activeTab = getActiveTab();
+            if (activeTab) {
+                let url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                activeTab.viewEl.src = url;
+            }
+        }
     });
 });
 

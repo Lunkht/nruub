@@ -61,8 +61,8 @@
     <script>
         document.getElementById('search-input').addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                // This will inform the main script to perform a search
-                window.parent.postMessage({ type: 'search', query: e.target.value }, '*');
+                const query = e.target.value;
+                window.parent.performSearch(query);
             }
         });
     </script>
