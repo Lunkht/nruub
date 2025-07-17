@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function createNewTab(url = 'html/new_tab.html', title = 'Nouvel onglet') {
+    function createNewTab(url = '/html/new_tab.html', title = 'Nouvel onglet') {
         const tabId = `tab-${Date.now()}`;
         
         // Create the tab element
@@ -187,12 +187,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.getElementById('menu-history').addEventListener('click', () => {
         const activeTab = getActiveTab();
-        if (activeTab) activeTab.viewEl.src = 'html/history.html';
+        if (activeTab) activeTab.viewEl.src = '/html/history.html';
         mainMenu.classList.add('hidden'); // Hide menu after action
     });
     document.getElementById('menu-downloads').addEventListener('click', () => {
         const activeTab = getActiveTab();
-        if (activeTab) activeTab.viewEl.src = 'html/downloads.html';
+        if (activeTab) activeTab.viewEl.src = '/html/downloads.html';
         mainMenu.classList.add('hidden'); // Hide menu after action
     });
     document.getElementById('menu-save').addEventListener('click', async () => {
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.getElementById('menu-settings').addEventListener('click', () => {
         const activeTab = getActiveTab();
-        if (activeTab) activeTab.viewEl.src = 'html/settings.html';
+        if (activeTab) activeTab.viewEl.src = '/html/settings.html';
         mainMenu.classList.add('hidden'); // Hide menu after action
     });
     document.getElementById('menu-help').addEventListener('click', () => {
@@ -304,23 +304,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isCmdOrCtrl && e.key === 'j') {
             e.preventDefault();
             const activeTab = getActiveTab();
-            if (activeTab) activeTab.viewEl.src = 'html/downloads.html';
+            if (activeTab) activeTab.viewEl.src = '/html/downloads.html';
         }
 
         if (isCmdOrCtrl && e.key === 's') {
             e.preventDefault();
             const activeTab = getActiveTab();
             if (activeTab) {
-                activeTab.viewEl.contentWindow.document.documentElement.outerHTML.then(content => {
-                    eel.save_as(content)();
-                });
+                const content = activeTab.viewEl.contentWindow.document.documentElement.outerHTML;
+                eel.save_as(content)();
             }
         }
 
         if (isCmdOrCtrl && e.key === ',') {
             e.preventDefault();
             const activeTab = getActiveTab();
-            if (activeTab) activeTab.viewEl.src = 'html/settings.html';
+            if (activeTab) activeTab.viewEl.src = '/html/settings.html';
         }
 
         if (isCmdOrCtrl && (e.key === '=' || e.key === '+')) {
@@ -339,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const ideBtn = document.getElementById('ide-btn');
     ideBtn.addEventListener('click', () => {
-        createNewTab('html/NruubIDE.html', 'IDE');
+        createNewTab('/html/NruubIDE.html', 'IDE');
     });
 
     // Listen for messages from iframes (e.g., new_tab.html for search)
