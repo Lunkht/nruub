@@ -72,11 +72,11 @@ body, html {
 }
 
 .tab-title {
-    margin-right: 8px;
+    margin-right: 8px;padding: 1px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 150px;
+    max-width: 180px;
 }
 
 .tab-close {
