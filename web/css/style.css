@@ -56,11 +56,10 @@ body, html {
     display: flex;
     align-items: center;
     padding: 8px 12px;
+    margin: 2px;
     background-color: var(--tab-bg);
-    border: 1px solid var(--tab-border);
     border-bottom: none;
-    border-radius: 5px 5px 0 0;
-    margin-right: 2px;
+    border-radius: 5px;
     cursor: pointer;
     position: relative;
     top: 1px; /* Align with toolbar border */
@@ -72,10 +71,11 @@ body, html {
 }
 
 .tab-title {
-    margin-right: 8px;padding: 1px;
+    margin-right: 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 13px;
     max-width: 180px;
 }
 
@@ -85,6 +85,7 @@ body, html {
     cursor: pointer;
     font-size: 14px;
     padding: 0 4px;
+    background-color: rgb(208, 219, 217);
     border-radius: 50%;
 }
 
@@ -256,4 +257,22 @@ body, html {
 }
 #ide-btn:hover {
     background-color: #f3f4f6;
+}
+
+#save-url-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 6px;
+    margin: 0 2px;
+}
+
+#save-url-btn:hover {
+    background-color: #f3f4f6;
+    border-radius: 4px;
+}
+
+#save-url-btn img {
+    height: 15px;
+    width: 15px;
 }

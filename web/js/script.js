@@ -248,19 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (activeTab) {
             let url = query;
             if (!url.startsWith('http')) {
-                const defaultSearchEngine = localStorage.getItem('defaultSearchEngine') || 'duckduckgo'; // Default to DuckDuckGo
-                switch (defaultSearchEngine) {
-                    case 'google':
-                        url = `https://www.google.com/search?q=${encodeURIComponent(url)}`;
-                        break;
-                    case 'bing':
-                        url = `https://www.bing.com/search?q=${encodeURIComponent(url)}`;
-                        break;
-                    case 'duckduckgo':
-                    default:
-                        url = `https://duckduckgo.com/?q=${encodeURIComponent(url)}`;
-                        break;
-                }
+                url = `https://lunkht.github.io/nruubsearch.io/?q=${encodeURIComponent(url)}`;
             }
             activeTab.viewEl.src = url;
         }
@@ -341,16 +329,22 @@ document.addEventListener('DOMContentLoaded', () => {
         createNewTab('/html/NruubIDE.html', 'IDE');
     });
 
+    const saveUrlBtn = document.getElementById('save-url-btn');
+    saveUrlBtn.addEventListener('click', () => {
+        console.log("save button clicked");
+        const activeTab = getActiveTab();
+        if (activeTab) {
+            const url = activeTab.url;
+            const title = activeTab.title;
+            eel.save_url(url, title)();
+        }
+    });
+
     // Listen for messages from iframes (e.g., new_tab.html for search)
     window.addEventListener('message', (event) => {
         // Ensure the message is from a trusted source if possible, or validate its content
         if (event.data && event.data.type === 'search') {
-            const query = event.data.query;
-            const activeTab = getActiveTab();
-            if (activeTab) {
-                let url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-                activeTab.viewEl.src = url;
-            }
+            performSearch(event.data.query);
         }
     });
 });

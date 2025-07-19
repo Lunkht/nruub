@@ -3,6 +3,7 @@ import sys
 import subprocess
 import tkinter as tk
 from tkinter import filedialog
+import json
 
 _private_mode = '--private' in sys.argv
 
@@ -33,6 +34,20 @@ def save_as(content):
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
     root.destroy()
+
+@eel.expose
+def save_url(url, title):
+    """Saves a URL and title to a JSON file."""
+    try:
+        with open('saved_urls.json', 'r+') as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        data = []
+    
+    data.append({'url': url, 'title': title})
+    
+    with open('saved_urls.json', 'w') as f:
+        json.dump(data, f, indent=4)
 
 # Start the application
 eel.start('html/index.html', size=(1024, 768))
