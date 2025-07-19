@@ -7,6 +7,7 @@
 <body>
     <div id="tabs">
         <!-- Tabs will be dynamically inserted here -->
+        <button id="new-tab-btn">+</button>
     </div>
     <div id="toolbar">
         <button id="back"><img src="/assets/arrow-small-left.svg"></button>
@@ -17,7 +18,13 @@
             <input type="text" id="url-bar" placeholder="Rechercher ou entrer une URL...">
             <img src="/assets/search.svg" id="search-icon">
         </div>
-        <button id="new-tab-btn">+</button>
+    </div>
+    <div id="content">
+        <!-- Iframes for each tab will be dynamically inserted here -->
+    </div>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <div id="bottom-bar">
         <div id="menu-container">
             <button id="menu-btn">☰</button>
             <div id="main-menu" class="hidden">
@@ -41,13 +48,6 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <div id="content">
-        <!-- Iframes for each tab will be dynamically inserted here -->
-    </div>
-    <script type="text/javascript" src="/eel.js"></script>
-    <script type="text/javascript" src="/js/script.js"></script>
-    <div id="bottom-bar">
         <div id="ide-btn"><img src="/assets/code-simple.svg" alt="" srcset=""></div>
         <div id="save-url-btn"><img src="/assets/list.svg" alt="" srcset=""></div>
     </div>

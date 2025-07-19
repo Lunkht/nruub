@@ -50,16 +50,30 @@ body, html {
     background-color: var(--toolbar-border);
     padding: 5px 5px 0 5px;
     border-bottom: 1px solid var(--toolbar-border);
+    align-items: center;
+}
+
+#new-tab-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px 8px;
+    margin-left: 5px;
+    border-radius: 4px;
+}
+
+#new-tab-btn:hover {
+    background-color: var(--tab-close-hover);
 }
 
 .tab {
     display: flex;
     align-items: center;
     padding: 8px 12px;
-    margin: 2px;
+    border: 1.2px solid var(--tab-border);
     background-color: var(--tab-bg);
-    border-bottom: none;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
     position: relative;
     top: 1px; /* Align with toolbar border */
@@ -67,7 +81,6 @@ body, html {
 
 .tab.active {
     background-color: var(--tab-active-bg);
-    border-bottom: 1px solid var(--tab-active-bg);
 }
 
 .tab-title {
@@ -176,6 +189,14 @@ body, html {
 #toolbar button:hover {
     background-color: var(--tab-close-hover);
     border-radius: 4px;
+}
+
+#menu-btn {
+    font-size: 18px; /* Réduit la taille de l'icône */
+}
+
+#menu-btn:hover {
+    background-color: transparent; /* Supprime le fond au survol */
 }
 
 #toolbar button img {

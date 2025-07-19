@@ -22,5 +22,21 @@
     {
         "url": "http://localhost:8000/html/NruubIDE.html",
         "title": "NruubIDE"
+    },
+    {
+        "url": "http://localhost:8000/html/NruubIDE.html",
+        "title": "NruubIDE"
+    },
+    {
+        "url": "http://localhost:8000/html/new_tab.html",
+        "title": "Nouvel onglet"
+    },
+    {
+        "url": "http://localhost:8000/html/new_tab.html",
+        "title": "Nouvel onglet"
+    },
+    {
+        "url": "http://localhost:8000/html/NruubIDE.html",
+        "title": "NruubIDE"
     }
 ]
